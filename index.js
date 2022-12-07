@@ -86,9 +86,13 @@ const zooAnimals = [
   💡 NOTE: Do some research for other methods that can help help you
   */
 
-  function lowerCaseNames(/*Your Code Here*/){
-    /*Your Code Here*/
+  function lowerCaseNames(zooAnimals){
+    const newArray = [];
+    zooAnimals.map(animal => {newArray.push(animal.animal_name.toLowerCase())})
+    return newArray;
+
   }
+  console.log(lowerCaseNames(zooAnimals));
   
   
   /* 🦁🦁🦁 Request 3: .filter() 🦁🦁🦁
@@ -99,9 +103,11 @@ const zooAnimals = [
   3. Return this new array
   */
 
-  function lowPopulationAnimals(/*Your Code Here*/){
-    /*Your Code Here*/
+  function lowPopulationAnimals(zooAnimals){
+    const newPop = zooAnimals.filter(animal => animal.population < 5)
+    return newPop;
   }
+  console.log(lowPopulationAnimals(zooAnimals));
   
 
   /* 🦁🦁🦁 Request 4: .reduce() 🦁🦁🦁
@@ -113,9 +119,15 @@ const zooAnimals = [
   💡 NOTE: Remember the reduce method takes two arguments: a callback (which itself takes two args - the accumulator and the item), and an initial value for the count. Check MDN/W3Schools for syntax!
   */
 
-  function USApop(/*Your Code Here*/){
-    /*Your Code Here*/
+  function USApop(zooAnimals){
+    const populations = [];
+    zooAnimals.map(animal => {populations.push(animal.population)})
+
+    const initialValue = 0;
+    const sumWithInitial = populations.reduce((accumulator, currentValue) => accumulator + currentValue, initialValue);
+    return sumWithInitial;
   }
+  console.log(USApop(zooAnimals));
   
   
   // 🦁🦁🦁 Callbacks 🦁🦁🦁  
@@ -128,8 +140,9 @@ const zooAnimals = [
   */
 
   function consume(a,b,cb){
-    /*Your Code Here */
+    return cb(a,b);
   }
+  console.log(consume);
  
   
   // 🦁🦁🦁 Step 2: Create several functions to callback with consume(); 🦁🦁🦁
